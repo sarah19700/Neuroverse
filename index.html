@@ -271,10 +271,11 @@
     const SPLAT_FILE = "https://huggingface.co/datasets/Sarah9999/neuroverse-scenes/resolve/main/scene.splat";
     // ──────────────────────────────────────────────
 
-    // Pass the splat file to main.js via the URL hash
-    // antimatter15 viewer reads from location.hash
-    if (!window.location.hash || window.location.hash === "#") {
-      window.location.hash = SPLAT_FILE;
+    // antimatter15 reads the file from ?url= query parameter
+    // Redirect once to inject it if not already present
+    const currentParams = new URLSearchParams(window.location.search);
+    if (!currentParams.get("url")) {
+      window.location.replace(window.location.pathname + "?url=" + encodeURIComponent(SPLAT_FILE));
     }
 
     // Watch for canvas to appear → hide loader
