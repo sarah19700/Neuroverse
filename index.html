@@ -309,6 +309,13 @@
     });
   </script>
 
+  <!-- hidden elements that main.js expects to exist -->
+  <div id="progress" style="display:none;"></div>
+  <div id="message" style="display:none;"></div>
+  <div id="spinner" style="display:none;"></div>
+  <div id="quality" style="display:none;"><span id="fps"></span></div>
+  <div id="caminfo" style="display:none;"><span id="camid"></span></div>
+
   <!-- canvas must have id="canvas" for main.js to find it -->
   <canvas id="canvas" style="display:block;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1;touch-action:none;"></canvas>
 
